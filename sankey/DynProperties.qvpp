@@ -1,0 +1,44 @@
+<div class="ToolWindow-MainBody" avq="foldOutMenu:." style="overflow: visible !important; float: left;">
+	<div class="prop-accordion" avq="accordion:.">
+		<h3 class="prop-h3 accordion-shadow">
+			<a href="#">
+				sankey
+			</a>
+		</h3>
+		<div class="prop-grid_container accordion-shadow-enabler" style="overflow:auto;">
+			<div class="prop-grid_clear prop-grid_top-vertical-spacer-12px prop-grid_last"></div>
+			
+	<div class='prop-grid_clear prop-grid_prepend-1 prop-grid_span-5' avq='prop_label'>Path</div>
+	<div class='prop-grid_span-10 prop-grid_last'>
+		<div class='prop-grid_span-7' avq='prop_dynamicDropdown:.Chart.Dimension.0.Field'></div>
+		<div class='prop-width-28px' propicontype='tool' avq='prop_dlgbuttonjqui:.Chart.Dimension.0:ExtensionDimDialog.qvpp'></div>
+	</div><br />
+	<div class='prop-grid_clear prop-grid_prepend-1 prop-grid_span-5' avq='prop_label'>Frequency</div>
+	<div class='prop-grid_span-10 prop-grid_last'>
+		<div class='prop-grid_span-7 prop-grid_last' style='width:94%;' avq='prop_editexpression:.Chart.Expression.0.0.Definition'></div>
+	</div><br />
+	<div class='prop-grid_clear prop-grid_prepend-1 prop-grid_span-5' avq='prop_label'>Reverse Path Order</div>
+	<div class='prop-grid_span-10 prop-grid_last'>
+		<div class='prop-grid_clear prop-grid_span-1' avq='prop_checkbox:.Chart.Text.0.Content'></div>
+	</div><br />
+	<div class='prop-grid_clear prop-grid_prepend-1 prop-grid_span-5' avq='prop_label'>Path Separator</div>
+	<div class='prop-grid_span-10 prop-grid_last'>
+		<div class='popup-grid_span-7 popup-grid_last' style='width:94%;' avq='prop_editexpression:.Chart.Text.1.Content'></div>
+	</div><br />
+
+		</div>
+		<h3 class="prop-h3 accordion-shadow" avq="activeAccordionHeader:.:GenericPresentationFoldout.qvpp">
+			<a href="#">Presentation</a>
+		</h3>
+		<div class="prop-grid_container accordion-shadow-enabler" avq="panel::Layout.qvpp"></div>
+		<h3 class="prop-h3 accordion-shadow" avq="activeAccordionHeader::PropertiesCaptionFoldout.qvpp">
+			<a href="#">Caption</a>
+		</h3>
+		<div class="prop-grid_container accordion-shadow-enabler" avq="panel::Caption.qvpp"></div>
+		<h3 class="prop-h3 accordion-shadow" avq="activeAccordionHeader:.:PropertiesOptionsFoldout.qvpp">
+			<a href="#">Options</a>
+		</h3>
+		<div class="prop-grid_container accordion-shadow-enabler" avq="panel::Options.qvpp"></div>
+	</div>
+	<span class="bottom-gap"></span>
+</div>
