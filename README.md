@@ -5,7 +5,7 @@ Repository for storing the code for the D3 sankey extension for QlikView 11.
 
 I built this extension based on Mike Bostock's sankey chart built from his d3 library:
 
-![alt tag](http://bost.ocks.org/mike/sankey/)
+http://bost.ocks.org/mike/sankey/
 
 This extension is in the early phases and pretty basic at this point.  There are many ways in which is could be improved, so feel free to take a shot at it.
 
