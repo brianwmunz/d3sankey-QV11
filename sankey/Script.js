@@ -132,7 +132,7 @@ function extension_Done() {
 		var margin = {
 			top : 1,
 			right : 1,
-			bottom : 6,
+			bottom : 1,
 			left : 1
 		}, width = _this.GetWidth(), height = _this.GetHeight();
 
