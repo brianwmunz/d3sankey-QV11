@@ -184,9 +184,9 @@ function extension_Done() {
 			return formatNumber(d) + " TWh";
 		}, color = d3.scale.category20();
 
-		var svg = d3.select("#" + divName).append("svg").attr("width", width + margin.left + margin.right).attr("height", height + margin.top + margin.bottom).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+		var svg = d3.select("#" + divName).append("svg").attr("width", width + margin.left + margin.right).attr("height", height + margin.top + margin.bottom ).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 		//console.info(svg);
-		var sankey = d3.sankey().nodeWidth(15).nodePadding(10).size([width, height]);
+		var sankey = d3.sankey().nodeWidth(15).nodePadding(10).size([width - 5, height - 5]);
 
 		var path = sankey.link();
 
