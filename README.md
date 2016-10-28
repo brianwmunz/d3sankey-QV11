@@ -1,7 +1,10 @@
 d3sankey-QV11
 ==============
 
-Repository for storing the code for the D3 sankey extension for QlikView 11.
+Repository for storing the code for the D3 sankey extension for QlikView 11. Modified to fix clipping issue from brianwmunz.
+
+Original text below:
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 I built this extension based on Mike Bostock's sankey chart built from his d3 library:
 
