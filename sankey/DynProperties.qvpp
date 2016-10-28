@@ -8,7 +8,7 @@
 		<div class="prop-grid_container accordion-shadow-enabler" style="overflow:auto;">
 			<div class="prop-grid_clear prop-grid_top-vertical-spacer-12px prop-grid_last"></div>
 			
-	<div class='prop-grid_clear prop-grid_prepend-1 prop-grid_span-5' avq='prop_label'>Path</div>
+	<div class='prop-grid_clear prop-grid_prepend-1 prop-grid_span-5' avq='prop_label'>Path (colon separated)</div>
 	<div class='prop-grid_span-10 prop-grid_last'>
 		<div class='prop-grid_span-7' avq='prop_dynamicDropdown:.Chart.Dimension.0.Field'></div>
 		<div class='prop-width-28px' propicontype='tool' avq='prop_dlgbuttonjqui:.Chart.Dimension.0:ExtensionDimDialog.qvpp'></div>
@@ -20,10 +20,6 @@
 	<div class='prop-grid_clear prop-grid_prepend-1 prop-grid_span-5' avq='prop_label'>Reverse Path Order</div>
 	<div class='prop-grid_span-10 prop-grid_last'>
 		<div class='prop-grid_clear prop-grid_span-1' avq='prop_checkbox:.Chart.Text.0.Content'></div>
-	</div><br />
-	<div class='prop-grid_clear prop-grid_prepend-1 prop-grid_span-5' avq='prop_label'>Path Separator</div>
-	<div class='prop-grid_span-10 prop-grid_last'>
-		<div class='popup-grid_span-7 popup-grid_last' style='width:94%;' avq='prop_editexpression:.Chart.Text.1.Content'></div>
 	</div><br />
 
 		</div>

@@ -1,9 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ExtensionObject Label="sankey" Description="Sankey Chart" PageHeight="50000">
-   <Dimension Label="Path" Initial="Path" TargetName="Path" />
+   <Dimension Label="Path (colon separated)" Initial="Path" TargetName="Path" />
    <Measurement Label="Frequency" Initial="Sum(Measure)"/>
    <Text Label="Reverse Path Order" Type="checkbox" Initial="" />
-   <Text Label="Path Separator" Initial="," Expression=","/>
 	<Initiate Name="Chart.Title" value="Sankey Chart" />
 	<Initiate Name="Caption.Text" Value="Sankey Chart" />
   </ExtensionObject>

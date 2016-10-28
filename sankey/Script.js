@@ -8,7 +8,6 @@ function extension_Init() {
 	} else {
 		Qva.LoadScript(sankey_path + 'd3.v3.min.js', extension_Done);
 	}
-
 }
 
 function countInArray(array, what) {
@@ -42,7 +41,6 @@ function searchAndChange(target, arr) {
 function extension_Done() {
 	//Add extension
 	Qva.AddExtension('sankey', function() {
-		console.info(d3);
 		//Load a CSS style sheet
 		var _this = this;
 		var divName = _this.Layout.ObjectId.replace("\\", "_");
@@ -62,18 +60,27 @@ function extension_Done() {
 		var sNodes = [];
 		var jNodes = [];
 		var rev = _this.Layout.Text0.text.toString();
-		var splitter = _this.Layout.Text1.text.toString();
+		//////console.info(countInArray(testArr, "A"));
 		for (var rowIx = 0; rowIx < td.Rows.length; rowIx++) {
 			//set the current row to a variable
 			var row = td.Rows[rowIx];
 			var path = row[0].text;
-			var tArr = path.split(splitter);
+			var tArr = path.split(",");
 			if (rev == "1") {
 				tArr.reverse();
 			}
 			if (tArr.length > 1) {
 				$.each(tArr, function(i) {
-					tArr[i] = this.toString().trim() + "~" + i;
+					//tArr[i] = this.toString().trim() + "~" + i;
+					if(tArr.length === (i + 1)){
+						tArr[i] = this.toString().trim() + "~end";
+					}else{
+						tArr[i] = this.toString().trim() + "~" + i;	
+					}
+					/*var newThis = this.toString() + i;
+					 if(countInArray(tArr,newThis) > 1){
+					 tArr = searchAndChange(newThis, tArr, countInArray(tArr,newThis));
+					 }*/
 				});
 				$.each(tArr, function(i) {
 					if ($.inArray(this.toString().trim(), sNodes) === -1) {
@@ -83,34 +90,67 @@ function extension_Done() {
 			}
 		}
 		sLinks = [];
+		//console.info(tArr);
+		/* {
+		 "source" : 47,
+		 "target" : 15,
+		 "value" : 289.366
+		 }*/
 		$.each(sNodes, function() {
 			jNodes.push({
 				"name" : this.toString()
 			})
 		});
+		////console.info(jNodes);
+		endArr = [];
 		for (var rowIx = 0; rowIx < td.Rows.length; rowIx++) {
 			var row = td.Rows[rowIx];
 			var path = row[0].text;
 			var val = parseFloat(row[1].text);
-			var tArr = path.split(splitter);
+			var tArr = path.split(",");
 			if (rev == "1") {
 				tArr.reverse();
 			}
 			if (tArr.length > 1) {
 				$.each(tArr, function(i) {
-					tArr[i] = this.toString().trim() + "~" + i;
+					/*if(tArr.length === (i + 1)){
+						var cur = this;
+						if(endArr.length > 0){
+							$.each(endArr,function(){
+								var trimmed = this.substring(0,this.indexOf("~"));
+								if(cur == trimmed){
+
+								}
+							});
+						}else{
+							endArr.push(cur.toString().trim() + "~" + i);
+						}
+					}*/
+					if(tArr.length === (i + 1)){
+						tArr[i] = this.toString().trim() + "~end";
+					}else{
+						tArr[i] = this.toString().trim() + "~" + i;	
+					}
+					
 					/*var newThis = this.toString() + i;
 					 if(countInArray(tArr,newThis) > 1){
 					 tArr = searchAndChange(newThis, tArr, countInArray(tArr,newThis));
 					 }*/
 				});
+				//console.info(tArr);
+				
+				
 				$.each(tArr, function(i) {
 					var tFlag = "no";
 					if ((i + 1) != tArr.length) {
+						////console.info(this.toString().trim() + " to " + tArr[i + 1]);
 						var cS = $.inArray(this.toString().trim(), sNodes);
 						var cT = $.inArray(tArr[i + 1].toString().trim(), sNodes);
+
+						//////console.info(cT + " " + cS);
 						$.each(sLinks, function(i, v) {
 							if ((v.source === cS) && (v.target === cT)) {
+								////console.info(this);
 								tFlag = "yes";
 								v.value = v.value + val;
 
@@ -129,6 +169,10 @@ function extension_Done() {
 			}
 
 		}
+		
+		//console.info(sNodes);
+		//_this.Element.innerHTML = "HELLO ENABLEMENT";
+		//console.info(sLinks);
 		var margin = {
 			top : 1,
 			right : 1,
@@ -141,10 +185,12 @@ function extension_Done() {
 		}, color = d3.scale.category20();
 
 		var svg = d3.select("#" + divName).append("svg").attr("width", width + margin.left + margin.right).attr("height", height + margin.top + margin.bottom).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
+		//console.info(svg);
 		var sankey = d3.sankey().nodeWidth(15).nodePadding(10).size([width, height]);
 
 		var path = sankey.link();
+
+		//d3.json("energy.json", function(energy) {
 
 		sankey.nodes(jNodes).links(sLinks).layout(32);
 
@@ -190,6 +236,8 @@ function extension_Done() {
 			sankey.relayout();
 			link.attr("d", path);
 		}
+
+		//});
 
 	});
 }
